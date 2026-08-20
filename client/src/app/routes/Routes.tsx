@@ -1,0 +1,30 @@
+import { createBrowserRouter } from "react-router-dom";
+import App from "../layout/App";
+import Catalog from "../../features/catalog/Catalog";
+import Homepage from "../../features/home/Homepage";
+import ProductDetails from "../../features/catalog/ProductDetails";
+import AboutPage from "../../features/about/AboutPage";
+import ContactPage from "../../features/contact/ContactPage";
+
+export const router = createBrowserRouter([
+    {
+        path: '/',
+        element: <App />,
+        children:[
+            {path : '',element: <Homepage/>},
+            {path : '/catalog',element: <Catalog/>},
+            {path : '/catalog/:id',element: <ProductDetails/>},
+            {path : '/about',element: <AboutPage/>},
+            {path : '/contact',element: <ContactPage/>},
+
+        ]
+    }
+],{
+future: {
+    v7_relativeSplatPath:true,
+    v7_fethcerPersist: true,
+    v7_normalizeFormMethod: true,
+    v7_partialHydration: true,
+    v7_skipActionErrorRevalidation:true
+}
+})
